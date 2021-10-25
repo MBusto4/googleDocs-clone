@@ -5,9 +5,9 @@ import Icon from "@material-tailwind/react/Icon";
 
 function Header() {
     return (
-        <div className='sticky top-0 z-50 flex items-center px-4 py-2 shadow-lg bg-white'>
+        <div className='sticky top-0 z-50 flex items-center px-4 py-2 shadow-lg bg-gray-900'>
             <Button
-                color='blue'
+                color='purple'
                 buttonType='outline'
                 rounded={true}
                 iconOnly={true}
@@ -17,12 +17,17 @@ function Header() {
                 <Icon name='menu' size='3xl' />
             </Button>
 
-            <Icon name='description' size='5xl' color='blue' />
-            <h1 className='ml-2 text-white text-2xl'>
+            <Icon name='description' size='5xl' color='purple' />
+            <h1 className='ml-2 text-white text-2xl mx-5'>
                 Docs
             </h1>
 
-        </div>
+            <div className='flex flex-grow items-center px-5 py-2 text-white rounded-3xl border-2'>
+                <Icon name='search' size='3xl' color='purple' />
+                <input type='text' placeholder='Search' className='flex-grow px-5 text-base bg-transparent outline-none' />
+            </div>
+
+        </div >
     )
 }
 
