@@ -16,10 +16,10 @@ export default function Home() {
       <Header />
 
 
-      <section className=' bg-[#11052C] pb-10 px-10 text-white'>
+      <section className=' bg-[#251052] pb-10 px-10 text-white'>
         <div className='mx-auto max-w-3xl'>
           <div className='flex items-center justify-between py-6'>
-            <h2 className='text-[#D62AD0] text-lg'>Start a New Documnent</h2>
+            <h2 className='text-[white] text-lg'>Start a New Documnent</h2>
             <Button
               color='purple'
               buttonType='outline'
@@ -36,9 +36,18 @@ export default function Home() {
             <div className='relative h-52 w-40 hover:border-green-400 border-4 border-[#D62AD0] cursor-pointer'>
               <img src='https://ssl.gstatic.com/docs/templates/thumbnails/docs-blank-googlecolors.png' layout='fill' />
             </div>
-            <p className='text-[#D62AD0]'>Blank</p>
+            <p className='ml-2 mt-2 font-semibold text-md text-[white]'>Blank</p>
           </div>
 
+        </div>
+      </section>
+
+      <section>
+        <div className=' max-w-3xl mx-auto py-8'>
+          <div>
+            <h2>My Documents</h2>
+            <p>Date Created</p>
+          </div>
         </div>
       </section>
 
