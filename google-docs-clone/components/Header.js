@@ -5,7 +5,7 @@ import Icon from "@material-tailwind/react/Icon";
 
 function Header() {
     return (
-        <div className='sticky top-0 z-50 flex items-center px-4 py-2 shadow-lg bg-gray-900'>
+        <header className='sticky top-0 z-50 flex items-center px-4 py-2 shadow-lg bg-[#11052C] border-b-2 border-[#D62AD0]'>
             <Button
                 color='purple'
                 buttonType='outline'
@@ -22,7 +22,7 @@ function Header() {
                 Docs
             </h1>
 
-            <div className='flex flex-grow items-center px-5 py-2 text-white rounded-3xl border-2 focus-within::text-white focus-within:shadow-md'>
+            <div className='flex flex-grow items-center px-5 py-2 text-white rounded-3xl border-2 border-[#D62AD0] focus-within::text-white focus-within:shadow-md'>
                 <Icon name='search' size='3xl' color='purple' />
                 <input type='text' placeholder='Search' className='flex-grow px-5 text-base bg-transparent outline-none' />
             </div>
@@ -42,7 +42,7 @@ function Header() {
                 // onClick ={signOut}
                 className='cursor-pointer h-12 w-12 rounded-full ml-2'
                 src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" alt="" />
-        </div >
+        </header >
     )
 }
 
