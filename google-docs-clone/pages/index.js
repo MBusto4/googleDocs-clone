@@ -1,15 +1,64 @@
 import Button from '@material-tailwind/react/Button'
 import Icon from '@material-tailwind/react/Icon'
-import { getSession, useSession } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import Head from 'next/head'
 import Header from '../components/Header'
 // import { useSession, signIn, signOut } from "next-auth/client"
-import Login from '../components/Login'
+
+import Modal from '@material-tailwind/react/Modal'
+import ModalBody from '@material-tailwind/react/ModalBody'
+import ModalFooter from '@material-tailwind/react/ModalFooter'
+import { useState } from 'react'
 
 
 export default function Home() {
 
   const { data: sessionData } = useSession()
+  const [showModal, setShowModal] = useState(false)
+  const [input, setInput] = useState("")
+
+  const createDocument = () => {
+
+  }
+
+  const modal = (
+    <Modal
+      size='sm'
+      active={showModal}
+      toggler={() => setShowModal(false)}>
+
+      <ModalBody>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          className='outline-none w-full'
+          placeholder='Enter name of document...'
+          onKeyDown={(e) => e.key === "Enter" && createDocument()}
+        />
+      </ModalBody>
+
+
+      <ModalFooter>
+        <Button
+          color="blue"
+          buttonType='link'
+          onClick={(e) => setShowModal(false)}
+          ripple='dark'
+        >
+          Cancel
+        </Button>
+        <Button
+          color='blue'
+          onClick={createDocument}
+          ripple='light'
+        >
+          Create
+        </Button>
+      </ModalFooter>
+
+    </Modal>
+  )
 
   // const [session] = useSession()
   // const [session, loading] = useSession()
@@ -25,6 +74,7 @@ export default function Home() {
       </Head>
 
       <Header />
+      {modal}
 
 
       <section className=' bg-[#251052] pb-10 px-10 text-white'>

@@ -1,7 +1,7 @@
 
 import { initializeApp, getApps, getApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
-import { getStorage } from 'firebase/firestore'
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDesJrJXb05w5chrQuXUWgzDB9zP8ui2t4",
@@ -24,6 +24,8 @@ const firebaseConfig = {
 
 
 //firebase v9
+// Initialize Firebase
+//get the apps we initialized if the length of that is null initialize a new app otherwise use the current app 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 const db = getFirestore()
 const storage = getStorage()

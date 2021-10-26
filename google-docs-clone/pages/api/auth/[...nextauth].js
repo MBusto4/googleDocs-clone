@@ -1,5 +1,8 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
+import { db } from '../../../firebase'
+import { FirebaseAdapter } from "@next-auth/firebase-adapter"
+
 
 export default NextAuth({
     // Configure one or more authentication providers
@@ -10,6 +13,7 @@ export default NextAuth({
         }),
         // ...add more providers here
     ],
+    // adapter: FirebaseAdapter(db),
 
     /*    how to use the default sign page next provides for you
         
