@@ -1,9 +1,12 @@
 
 import { getProviders, signIn as signInProvider } from 'next-auth/react'
 import Header from '../../components/Header'
+import { useRouter } from "next/dist/client/router"
 
 // running on the browswer
 function signIn({ providers }) {
+
+    const router = useRouter()
 
     console.log("Providers are here ---> ", providers)
     return (
@@ -19,13 +22,17 @@ function signIn({ providers }) {
                 <div className='mt-40'>
                     {
                         Object.values(providers).map((provider) => (
-                            <div key={provider.name}>
-                                <button className='p-3 bg-blue-500 rounded-lg text-white'
+                            <div key={provider.name} className='flex flex-col'>
+                                <button className='p-3 bg-white rounded-lg text-blue-500 border-blue-500 border-2 hover:bg-blue-500 hover:text-white'
                                     onClick={() =>
-                                        signInProvider(provider.id)
+                                        signInProvider(provider.id, { callbackUrl: '/' })
                                     }
                                 >
                                     Sign in with {provider.name}
+                                </button>
+
+                                <button onClick={() => router.push('/')} className='p-3 mt-10 bg-white rounded-lg text-blue-500 border-blue-500 border-2 hover:bg-blue-500 hover:text-white' >
+                                    Back to Home
                                 </button>
                             </div>
                         ))

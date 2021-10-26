@@ -1,5 +1,6 @@
 import Button from '@material-tailwind/react/Button'
 import Icon from '@material-tailwind/react/Icon'
+import { useSession } from 'next-auth/react'
 import Head from 'next/head'
 import Header from '../components/Header'
 // import { useSession, signIn, signOut } from "next-auth/client"
@@ -8,10 +9,12 @@ import Login from '../components/Login'
 
 export default function Home() {
 
+  const { data: sessionData } = useSession()
+
   // const [session] = useSession()
   // const [session, loading] = useSession()
 
-  // console.log('session --->', session)
+  console.log('session --->', sessionData)
 
   // if (!session) return <Login />
 
