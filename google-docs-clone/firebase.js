@@ -1,7 +1,8 @@
 
-import { initializeApp, getApps, getApp } from 'firebase/app'
-import { getFirestore } from 'firebase/firestore'
-import { getStorage } from "firebase/storage";
+// import { initializeApp, getApps, getApp } from 'firebase/app'
+// import { getFirestore } from 'firebase/firestore'
+// import { getStorage } from "firebase/storage";
+import firebase from 'firebase';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDesJrJXb05w5chrQuXUWgzDB9zP8ui2t4",
@@ -13,21 +14,21 @@ const firebaseConfig = {
 };
 
 // firebase v8
-// const app = !firebase.apps.length
-//     ? firebase.initializeApp(firebaseConfig)
-//     : firebase.app()
+const app = !firebase.apps.length
+    ? firebase.initializeApp(firebaseConfig)
+    : firebase.app()
 
-// const db = app.firestore()
+const db = app.firestore()
 
-// export { db }
+export { db }
 
 
 
 //firebase v9
 // Initialize Firebase
 //get the apps we initialized if the length of that is null initialize a new app otherwise use the current app 
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-const db = getFirestore()
-const storage = getStorage()
+// const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+// const db = getFirestore()
+// const storage = getStorage()
 
-export { app, db, storage }
+// export { app, db, storage }

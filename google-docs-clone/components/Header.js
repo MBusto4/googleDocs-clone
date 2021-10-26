@@ -61,9 +61,9 @@ function Header() {
                 <div className='flex items-center m-auto'>
                     <Icon name='description' size='5xl' color='purple' />
                     <h1 className=' cursor-pointer ml-2 text-[#D62AD0] text-2xl mx-5 md:mx-20 font-bold'>
-                        Google Docs Clone by Michael Busto
+                        Google Docs Clone
                     </h1>
-                    <button className="text-[#D62AD0] font-semibold ml-auto" onClick={signIn}> Sign In </button>
+                    <button className=" text-[#0d0224] rounded-2xl p-2 bg-[#D62AD0] font-semibold" onClick={signIn}> Sign In </button>
                 </div>
             )}
         </header >
