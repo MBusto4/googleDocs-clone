@@ -2,15 +2,27 @@ import Button from '@material-tailwind/react/Button'
 import Icon from '@material-tailwind/react/Icon'
 import Head from 'next/head'
 import Header from '../components/Header'
-import Image from 'next/image'
+// import { useSession, signIn, signOut } from "next-auth/client"
+import Login from '../components/Login'
 
 
 export default function Home() {
+
+  // const [session] = useSession()
+  // const [session, loading] = useSession()
+
+  // console.log('session --->', session)
+
+  // if (!session) return <Login />
+
   return (
     <div>
       <Head>
         <title>GoogleDocs Clone</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
       </Head>
 
       <Header />
@@ -31,16 +43,15 @@ export default function Home() {
               <Icon name='more_vert' size='3xl' />
             </Button>
           </div>
-
           <div>
             <div className='relative h-52 w-40 hover:border-green-400 border-4 border-[#D62AD0] cursor-pointer'>
               <img src='https://ssl.gstatic.com/docs/templates/thumbnails/docs-blank-googlecolors.png' layout='fill' />
             </div>
             <p className='ml-2 mt-2 font-semibold text-md text-[white]'>Blank</p>
           </div>
-
         </div>
       </section>
+
 
       <section className='bg-[#4e338a] px-10 md:px-0'>
         <div className='max-w-3xl mx-auto py-8 text-sm'>

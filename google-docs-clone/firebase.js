@@ -1,19 +1,31 @@
 
-import firebase from 'firebase'
+import { initializeApp, getApps, getApp } from 'firebase/app'
+import { getFirestore } from 'firebase/firestore'
+import { getStorage } from 'firebase/firestore'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAbjO7NbQA_HDTo0hqUP9aQMSl9xlee_kE",
-    authDomain: "docs-clone-6f70e.firebaseapp.com",
-    projectId: "docs-clone-6f70e",
-    storageBucket: "docs-clone-6f70e.appspot.com",
-    messagingSenderId: "413521747041",
-    appId: "1:413521747041:web:2de025cc208b9ef7909e20"
+    apiKey: "AIzaSyDesJrJXb05w5chrQuXUWgzDB9zP8ui2t4",
+    authDomain: "docs-clone-7237c.firebaseapp.com",
+    projectId: "docs-clone-7237c",
+    storageBucket: "docs-clone-7237c.appspot.com",
+    messagingSenderId: "89534199583",
+    appId: "1:89534199583:web:1baa8a583cbcb76ca6222a"
 };
 
-const app = !firebase.apps.length
-    ? firebase.initializeApp(firebaseConfig)
-    : firebase.app()
+// firebase v8
+// const app = !firebase.apps.length
+//     ? firebase.initializeApp(firebaseConfig)
+//     : firebase.app()
 
-const db = app.firestore()
+// const db = app.firestore()
 
-export { db }
+// export { db }
+
+
+
+//firebase v9
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+const db = getFirestore()
+const storage = getStorage()
+
+export { app, db, storage }

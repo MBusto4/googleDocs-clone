@@ -2,11 +2,14 @@ import React from 'react'
 
 import Button from "@material-tailwind/react/Button";
 import Icon from "@material-tailwind/react/Icon";
+import { useRouter } from "next/dist/client/router"
 
 function Header() {
+    const router = useRouter()
     return (
         <header className='sticky top-0 z-50 flex items-center px-4 py-2 shadow-lg bg-[#0d0224] border-b-2 border-[#D62AD0]'>
             <Button
+
                 color='purple'
                 buttonType='outline'
                 rounded={true}
@@ -17,7 +20,7 @@ function Header() {
                 <Icon name='menu' size='3xl' />
             </Button>
 
-            <Icon name='description' size='5xl' color='purple' />
+            <Icon onClick={() => router.push('/auth/signin')} name='description' size='5xl' color='purple' />
             <h1 className='ml-2 text-white text-2xl mx-5 md:mx-20 font-bold'>
                 Docs
             </h1>
@@ -35,7 +38,7 @@ function Header() {
                 ripple='dark'
                 className='ml-5 md:ml-20 h-20 w-20 border-0'
             >
-                <Icon name='apps' size='3xl' color='purple' />
+                <Icon className='cursor-pointer' name='apps' size='3xl' color='purple' />
             </Button>
             <img
                 loading='lazy'
