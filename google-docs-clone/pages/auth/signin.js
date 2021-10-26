@@ -16,6 +16,7 @@ function signIn({ providers }) {
         mapping thru all the providers and get the provider value which is google
         */
         <>
+            <Header />
             <div className='  flex flex-col items-center justify-center min-h-screen py-2 -mt-56 px-14 text-center'>
                 <img className='w-100' src="https://tettra.com/wp-content/uploads/2019/03/integrations-google-docs-logo.png" alt="" />
                 <p className='font-lg italic'> Not Real APP!! This is an GOOGLEDOCS clone Made by Michael Busto</p>
