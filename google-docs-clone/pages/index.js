@@ -93,7 +93,7 @@ export default function Home() {
             </Button>
           </div>
           <div>
-            <div className='relative h-52 w-40 hover:border-green-400 border-4 border-[#D62AD0] cursor-pointer'>
+            <div onClick={() => setShowModal(true)} className='relative h-52 w-40 hover:border-green-400 border-4 border-[#D62AD0] cursor-pointer'>
               <img src='https://ssl.gstatic.com/docs/templates/thumbnails/docs-blank-googlecolors.png' layout='fill' />
             </div>
             <p className='ml-2 mt-2 font-semibold text-md text-[white]'>Blank</p>
