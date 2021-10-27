@@ -15,7 +15,6 @@ const Editor = dynamic(
 function TextEditor() {
     return (
         <div>
-            <h1>text editor</h1>
             <Editor />
         </div>
     )
