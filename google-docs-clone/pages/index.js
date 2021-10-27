@@ -28,12 +28,16 @@ export default function Home() {
     .collection('docs')
     .orderBy('timestamp', 'desc'))
 
-  const createDocument = async () => {
+  const autoReload = () => {
+    location.reload()
+  }
+
+  const createDocument = () => {
     if (!input) return
 
     // db.collection('users')
     //   .doc(sessionData.user.uid)
-    await db.collection('userDocs')
+    db.collection('userDocs')
       .doc(sessionData.user.email)
       .collection('docs')
       .add({
@@ -43,6 +47,7 @@ export default function Home() {
 
     setInput('')
     setShowModal(false)
+    // autoReload()
   }
 
   const modal = (
@@ -121,7 +126,12 @@ export default function Home() {
           <section className='bg-[#4e338a] px-10 md:px-0 h-screen'>
             <div className='max-w-3xl mx-auto py-8 text-sm'>
               <div className='flex items-center justify-between pb-5 text-white'>
-                <h2 className='font-medium flex-grow'> {sessionData?.user?.name} Documents</h2>
+                <h2 className='font-medium flex-grow'> {sessionData?.user?.name}'s Documents</h2>
+                <div onClick={autoReload} className='flex items-center  mr-32 cursor-pointer '>
+                  <Icon name='refresh' size='3xl' color='white' />
+                  <p className='font-medium flex-grow'>--- Refresh Documents ---</p>
+                  <Icon name='refresh' size='3xl' color='white' />
+                </div>
                 <p className='mr-10'>Date Created</p>
                 <Icon name='folder' size='3xl' color='white' />
               </div>
