@@ -93,7 +93,7 @@ export default function Home() {
 
       {sessionData ? (
         <>
-          <section className=' bg-[#251052] pb-10 px-10 text-white'>
+          <section className=' bg-[#251052] pb-10 px-10 border-[#D62AD0] border-b-2  text-white'>
             <div className='mx-auto max-w-3xl'>
               <div className='flex items-center justify-between py-6'>
                 <h2 className='text-[white] text-lg'>Start a New Documnent</h2>

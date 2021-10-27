@@ -2,6 +2,7 @@ import 'tailwindcss/tailwind.css'
 import "@material-tailwind/react/tailwind.css";
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react'
+import '../styles/globals.css'
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
