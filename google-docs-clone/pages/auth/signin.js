@@ -8,8 +8,6 @@ import Footer from '../../components/Footer'
 function signIn({ providers }) {
 
     const router = useRouter()
-
-    console.log("Providers are here ---> ", providers)
     return (
         /*
         next auth documentation

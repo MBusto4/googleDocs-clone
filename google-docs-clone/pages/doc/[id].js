@@ -7,6 +7,7 @@ import {
 } from "react-firebase-hooks/firestore"
 import { db } from '../../firebase'
 import { useRouter } from "next/dist/client/router"
+import TextEditor from '../../components/TextEditor'
 
 function Doc() {
     const { data: sessionData } = useSession()
@@ -19,9 +20,9 @@ function Doc() {
         .doc(id))
 
 
-    if (!loading && !snapshot?.data()?.fileName) {
-        router.replace('/')
-    }
+    // if (!loading && !snapshot?.data()?.fileName) {
+    //     router.replace('/')
+    // }
 
     return (
         <div>
@@ -31,7 +32,7 @@ function Doc() {
                 </span>
 
                 <div className='flex-grow px-2'>
-                    <h2>
+                    <h2 className='font-bold'>
                         {snapshot?.data()?.fileName}
                     </h2>
                     <div className='flex items-center text-sm space-x-1 -ml-1 h-8 text-gray-600'>
@@ -55,7 +56,12 @@ function Doc() {
                 >
                     <Icon name='people' size='md' /> SHARE
                 </Button>
+                <img
+                    loading='lazy'
+                    className='h-10 w-10 rounded-full ml-2'
+                    src={sessionData?.user?.image} alt="" />
             </header>
+            <TextEditor />
         </div>
     )
 }
