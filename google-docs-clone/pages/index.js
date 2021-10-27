@@ -3,8 +3,6 @@ import Icon from '@material-tailwind/react/Icon'
 import { useSession } from 'next-auth/react'
 import Head from 'next/head'
 import Header from '../components/Header'
-// import { useSession, signIn, signOut } from "next-auth/client"
-
 import Modal from '@material-tailwind/react/Modal'
 import ModalBody from '@material-tailwind/react/ModalBody'
 import ModalFooter from '@material-tailwind/react/ModalFooter'
@@ -12,11 +10,11 @@ import { useState } from 'react'
 import Welcome from '../components/Welcome'
 import { db } from '../firebase'
 import firebase from 'firebase'
-
 import {
   useCollectionOnce
 } from "react-firebase-hooks/firestore"
 import DocumentRow from '../components/DocumentRow'
+import Footer from '../components/Footer'
 
 
 export default function Home() {
@@ -120,22 +118,23 @@ export default function Home() {
           </section>
 
 
-          <section className='bg-[#4e338a] px-10 md:px-0'>
+          <section className='bg-[#4e338a] px-10 md:px-0 h-screen'>
             <div className='max-w-3xl mx-auto py-8 text-sm'>
               <div className='flex items-center justify-between pb-5 text-white'>
                 <h2 className='font-medium flex-grow'> {sessionData?.user?.name} Documents</h2>
                 <p className='mr-10'>Date Created</p>
                 <Icon name='folder' size='3xl' color='white' />
               </div>
+
+              {snapshot?.docs.map((doc) => (
+                <DocumentRow
+                  key={doc.id}
+                  id={doc.id}
+                  fileName={doc.data().fileName}
+                  date={doc.data().timestamp}
+                />
+              ))}
             </div>
-            {snapshot?.docs.map((doc) => (
-              <DocumentRow
-                key={doc.id}
-                id={doc.id}
-                fileName={doc.data().fileName}
-                date={doc.data().timestamp}
-              />
-            ))}
           </section>
         </>
       ) : (
@@ -146,6 +145,7 @@ export default function Home() {
         </div>
 
       )}
+      <Footer />
     </div>
   )
 }
