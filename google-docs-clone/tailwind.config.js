@@ -4,9 +4,6 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      outline: {
-        blue: '2px solid rgba(156, 39, 176)',
-      }
     },
   },
   variants: {
