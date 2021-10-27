@@ -2,6 +2,7 @@
 import { getProviders, signIn as signInProvider } from 'next-auth/react'
 import Header from '../../components/Header'
 import { useRouter } from "next/dist/client/router"
+import Footer from '../../components/Footer'
 
 // running on the browswer
 function signIn({ providers }) {
@@ -41,6 +42,7 @@ function signIn({ providers }) {
                 </div>
             </div>
         </>
+
     )
 }
 
