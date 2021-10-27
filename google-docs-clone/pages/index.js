@@ -13,6 +13,10 @@ import Welcome from '../components/Welcome'
 import { db } from '../firebase'
 import firebase from 'firebase'
 
+import {
+  useCollectionOnce
+} from "react-firebase-hooks/firestore"
+import DocumentRow from '../components/DocumentRow'
 
 
 export default function Home() {
@@ -21,12 +25,17 @@ export default function Home() {
   const [showModal, setShowModal] = useState(false)
   const [input, setInput] = useState("")
 
-  const createDocument = () => {
+  const [snapshot, loading] = useCollectionOnce(db.collection('userDocs')
+    .doc(sessionData?.user?.email)
+    .collection('docs')
+    .orderBy('timestamp', 'desc'))
+
+  const createDocument = async () => {
     if (!input) return
 
     // db.collection('users')
     //   .doc(sessionData.user.uid)
-    db.collection('userDocs')
+    await db.collection('userDocs')
       .doc(sessionData.user.email)
       .collection('docs')
       .add({
@@ -55,7 +64,6 @@ export default function Home() {
         />
       </ModalBody>
 
-
       <ModalFooter>
         <Button
           color="blue"
@@ -73,16 +81,8 @@ export default function Home() {
           Create New
         </Button>
       </ModalFooter>
-
     </Modal>
   )
-
-  // const [session] = useSession()
-  // const [session, loading] = useSession()
-
-  console.log('session --->', sessionData)
-
-  // if (!session) return <Login />
 
   return (
     <div>
@@ -128,6 +128,14 @@ export default function Home() {
                 <Icon name='folder' size='3xl' color='white' />
               </div>
             </div>
+            {snapshot?.docs.map((doc) => (
+              <DocumentRow
+                key={doc.id}
+                id={doc.id}
+                fileName={doc.data().fileName}
+                date={doc.data().timestamp}
+              />
+            ))}
           </section>
         </>
       ) : (
@@ -138,8 +146,6 @@ export default function Home() {
         </div>
 
       )}
-
-
     </div>
   )
 }

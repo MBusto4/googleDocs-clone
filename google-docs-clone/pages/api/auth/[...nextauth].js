@@ -14,14 +14,6 @@ export default NextAuth({
         // ...add more providers here
     ],
     // adapter: FirebaseAdapter(db),
-
-    /*    how to use the default sign page next provides for you
-        
-    theme: {
-            logo: "https://links.papareact.com/sq0",
-            brandColor: "#F13287",
-            colorScheme: "auto"
-} */
     pages: {
         signIn: '/auth/signin'
     },
