@@ -31,7 +31,7 @@
 
 ## Installation
 
-- To install all dependencies: `npm run install`
+- To install all dependencies: `npm install`
 - cd into the directory of google-docs-clone
 - To Run App!: `npm run dev`
 - Then just visit https://localhost:3000
