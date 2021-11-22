@@ -6,14 +6,12 @@
 
 ## Features to Try!
 
-- Sign into OuterView with your Google account
-- Record yourself talking and see a live transcription
-- Render Face Points and make some funny faces
-- Emotions trained into machine learning model
-  - _Happy, Sad, Surprised, Anger, Fearful, Disgusted, Neutral_
-- Say lots of filler words such as 'like', 'totally' and 'basically'
-- Try different emotions with varying amounts of filler words to see the scoring algorithm work
-- See your previous recordings in the All Recordings page
+- Sign in with your Google account
+- Once logged in Simply click add a document
+- Type the name of what you want to name your document
+- Refresh page and see the new document added to your list
+- A text editor will open up and you can type whatever you want similar to a google docs
+- When done hit save and go back to the home screen and add more documents if you want
 
 ## Technologies
 
@@ -25,10 +23,6 @@
 - External API/Libraries
   - Draft.js 
    
-## Future Roadmap
-
-
-
 ## Installation
 
 - To install all dependencies: `npm install`
